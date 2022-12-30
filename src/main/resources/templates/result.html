@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+</head>
+
+<body>
+    <h1 th:text="'Your ' + *{num} + ' results for - ' + *{query}"></h1>
+    <h3 th:if="${!hasResult}">Your search produces no results</h3>
+    <div th:each="comment : ${comments}">
+        <p>Id: <span th:text="*{comment.id}"></span></p>
+        <p>User: <span th:text="*{comment.user}"></span></p>
+        <p>Comment:</p>
+        <p th:text="*{comment.text}"></p>
+        <p>Rating: <span th:text="*{comment.rating}"></span></p>
+        <p>Score: <span th:text="*{comment.score}"></span></p>
+        <hr>
+    </div>
+</body>
+
+</html>
